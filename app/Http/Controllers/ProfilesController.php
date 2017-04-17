@@ -15,6 +15,7 @@ class ProfilesController extends Controller
     public function index($slug)
     {
       $user = user::where('slug', $slug)->first();
+      
       $id_user = user::where('slug', $slug)->pluck('id');
 
 
@@ -27,10 +28,17 @@ class ProfilesController extends Controller
                 ->limit(12)
                 ->get();
 
+      $count = Mading::where('user_id', $id_user)
+                ->count();
+
+      $point = $count * 10;
+
 
       return view('profiles.profile')
         ->with('user', $user)
         ->with('list', $listcat)
+        ->with('counts', $count)
+        ->with('poin', $point)
         ->with('blogs', $blogs);
     }
 
@@ -63,4 +71,6 @@ class ProfilesController extends Controller
       Session::flash('success','Update profile berhasil disimpan..');
       return redirect()->back();
     }
+
+
 }

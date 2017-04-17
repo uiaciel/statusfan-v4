@@ -6755,3 +6755,10 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}

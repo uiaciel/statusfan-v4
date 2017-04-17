@@ -62,28 +62,26 @@ class BlogController extends Controller
       $blog = new Mading;
       $blog->title = $request->title;
       $blog->user_id = $request->user_id;
-      $blog->content = $request->content;
       $blog->source_img = $request->source_img;
-      $blog->slug=str_slug($request->judul);
-      $blog->sumber_gambar = $request->sumber_gambar;
+      $blog->content = $request->content;
+      $blog->slug=str_slug($request->title);
       $blog->category_id = $request->category_id;
-      $blog->privacy = $request->privacy;
-      $blog->show_comments = $request->show_comments;
-      $blog->show_likes = $request->show_likes;
-      $blog->status = $request->status;
-      $blog->viewer = $request->viewer;
       $blog->tags = $request->tags;
-      $blog->feature = $request->feature;
+      $blog->privacy = $request->privacy;
+      // $blog->show_comments = $request->show_comments;
+      // $blog->show_likes = $request->show_likes;
+      // $blog->status = $request->status;
+      // $blog->feature = $request->feature;
 
 
       $file = $request->file('images');
       $fileName = $file->getClientOriginalName();
-      $request->file('images')->move("image/",$fileName);
+      $request->file('images')->move(public_path() . '/public/images/catalog/', $fileName);
       $blog->image = $fileName;
 
       $blog->save();
 
-      Session::flash('flash_message', 'Task successfully added!');
+      Session::flash('flash_message', 'Tulisan telah berhasi  successfully added!');
       return redirect()->back();
 
 
@@ -132,6 +130,8 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+      Mading::destroy($id);
+      return Redirect::route('items.index');
     }
 }

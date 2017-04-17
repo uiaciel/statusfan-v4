@@ -18,6 +18,8 @@
                     <label >Judul</label>
                     <input type="text" class="form-control" name="title" placeholder="Judul Tulisan">
                   </div>
+
+
                   <div class="form-group">
                     <label >Upload Gambar</label>
                     <!-- image-preview-filename input [CUT FROM HERE]-->
@@ -37,41 +39,21 @@
                                       </span>
                                   </div><!-- /input-group image-preview [TO HERE]-->
                     </div>
+                    <div class="form-group">
+                      <label >Sumber gambar</label>
+                      <input type="text" class="form-control" name="source_img" placeholder="Judul Tulisan">
+                    </div>
 
                         <div class="form-group">
-                        <script src="http://statusfan.com/app/Addons/ckeditor/ckeditor.js"></script>
+                        <script src="{{ URL::asset('ckeditor/ckeditor.js') }}"></script>
 
                                     <label >Konten</label>
                                     <textarea style="height: 500px  ;width: 100%;" class="blog-editor" name="content" placeholder="Tulis pengalaman dan cerita mu disini..  "></textarea>
-                        <script>tinymce.init({
 
-                        mode : "specific_textareas",
-                        editor_deselector : "post-textarea",
-                        height: 500,
-                        theme: 'modern',
-                        plugins: [
-                        'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                        'searchreplace wordcount visualblocks visualchars code fullscreen',
-                        'insertdatetime media nonbreaking save table contextmenu directionality',
-                        'emoticons template paste textcolor colorpicker textpattern imagetools codesample'
-                        ],
-                        toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-                        toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
-                        image_advtab: true,
-                        templates: [
-                        { title: 'Test template 1', content: 'Test 1' },
-                        { title: 'Test template 2', content: 'Test 2' }
-                        ],
-                        content_css: [
-                        '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-                        '//www.tinymce.com/css/codepen.min.css'
-
-                        ]
-                        });</script>
-                        <!--<script>
+                        <script>
                                 CKEDITOR.replaceAll('blog-editor' );
                         CKEDITOR.config.height='500px';
-                            </script>-->
+                            </script>
                         </div>
 
 
@@ -80,7 +62,7 @@
 
                         <div class="form-group">
                             <label >Kategori</label>
-                            <select class="form-control" name="kategori_id">
+                            <select class="form-control" name="category_id">
                               @foreach ($list as $catlist)
                               <option value="{{ $catlist->id }}">{{ $catlist->title }}</option>
                               @endforeach
@@ -97,33 +79,8 @@
           <div class="form-group">
               <label >privacy</label>
               <select class="form-control" name="privacy">
-                  <option value="0"></option>
-                  <option value="1">2</option>
-                  <option value="2">3</option>
-              </select>
-          </div>
-
-          <div class="form-group">
-              <label >{{trans('blog::global.allow-comments')}}</label><br/>
-              <select name="val[comment]">
-                  <option value="1">{{trans('global.yes')}}</option>
-                  <option value="0">{{trans('global.no')}}</option>
-              </select>
-          </div>
-
-          <div class="form-group">
-              <label >{{trans('blog::global.allow-likes')}}</label> <br/>
-              <select name="val[like]">
-                  <option value="1">{{trans('global.yes')}}</option>
-                  <option value="0">{{trans('global.no')}}</option>
-              </select>
-          </div>
-
-          <div class="form-group" style="display:none">
-              <label >{{trans('blog::global.status')}}</label> <br/>
-              <select name="val[status]">
-      <option value="0">{{trans('blog::global.unpublished')}}</option>
-      <option value="1">{{trans('blog::global.published')}}</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
               </select>
           </div>
 
@@ -134,7 +91,7 @@
           <hr/>
 
           <div class="form-group">
-              <button class="btn btn-danger">{{trans('blog::global.submit')}}</button>
+              <button class="btn btn-danger" value="Submit" type="submit">Kirim</button>
           </div>
 
 

@@ -12,7 +12,7 @@
           <span class="story-subtitle">Penulis : <a href="/sahabat/{{ $blog->user->slug }}">{{ $blog->user->name }}</a></br> Dipublis : {{\Carbon\Carbon::instance($blog->created_at)->toFormattedDateString()}} - Kategori : {{$blog->category->title}} dibaca : {{ $blog->viewer }}</span>
 
           <hr class="story-hr">
-          <img src="{{ $blog->image }}" class="img-responsive" style="width:100%" />
+          <img src="{{ Storage::url($blog->image) }}" class="img-responsive" style="width:100%" />
           <p>Sumber gambar : {{ $blog->source_img }}</p>
           <hr>
 

@@ -12,7 +12,7 @@
                           <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 small-story-box">
                               <div class="box story-box ga" data-ga-label="home story" data-ga-category="navigation" data-ga-value="3">
                                 <a class="anchor-image" href="/mading/{{ $blog->slug }}">
-                                  <div class="img-responsive story-box-html-container" data-large="{{ $blog->image }}" data-medium="{{ $blog->image }}" data-small="{{ $blog->image }}" style="background-image: url({{ $blog->image }});"></div>
+                                  <div class="img-responsive story-box-html-container" data-large="{{ Storage::url($blog->image) }}" data-medium="{{ Storage::url($blog->image) }}" data-small="{{ Storage::url($blog->image) }}" style="background-image: url({{ Storage::url($blog->image) }});"></div>
                                   <h3>{{ $blog->title }}</h3>
                                 </a>
                               </div>
@@ -27,7 +27,7 @@
                           <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 small-story-box">
                               <div class="box story-box ga" data-ga-label="home story" data-ga-category="navigation" data-ga-value="3">
                                 <a class="anchor-image" href="/mading/{{ $kate->slug }}">
-                                  <div class="img-responsive story-box-html-container" data-large="{{ $kate->image }}" data-medium="{{ $kate->image }}" data-small="{{ $kate->image }}" style="background-image: url({{ $kate->image }});"></div>
+                                  <div class="img-responsive story-box-html-container" data-large="{{ Storage::url($kate->image) }}" data-medium="{{ Storage::url($kate->image) }}" data-small="{{ Storage::url($kate->image) }}" style="background-image: url({{ Storage::url($kate->image) }});"></div>
                                   <h3>{{ $kate->title }}</h3>
                                 </a>
                               </div>
@@ -49,7 +49,7 @@
 
                         <div class="box story-box ga" data-ga-label="home story" data-ga-category="navigation" data-ga-value="3">
                           <a class="anchor-image" href="/mading/{{ $toop->slug }}">
-                            <div class="img-responsive story-box-html-container" data-large="{{ $toop->image }}" data-medium="{{ $toop->image }}" data-small="{{ $toop->image }}" style="background-image: url({{ $toop->image }});"></div>
+                            <div class="img-responsive story-box-html-container" data-large="{{ Storage::url($toop->image) }}" data-medium="{{ Storage::url($toop->image) }}" data-small="{{ Storage::url($toop->image) }}" style="background-image: url({{ Storage::url($toop->image) }});"></div>
                             <h3>{{ $toop->title }}</h3>
                           </a>
                         </div>

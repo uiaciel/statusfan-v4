@@ -6,7 +6,7 @@
           <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 home-content">
               <div class="content home-content">
                     <h2>Terbaru</h2>
-                    
+
                     <div class="row pop-stories-content-row">
                       <div class="clearfix visible-sm-block visible-xs-block"></div>
                           @foreach ($hasil as $blog)

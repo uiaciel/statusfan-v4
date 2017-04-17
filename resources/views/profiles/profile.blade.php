@@ -10,13 +10,31 @@
 
 
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{ $user->name}}'s Profile</h3>
+
+      <div class="panel-body text-center">
+        <img src="{{ Storage::url($user->avatar) }}" class="img-circle img-responsive" style="width:200px;margin-top:20px;">
+        <h3>{{ $user->name}} @if($user->profile->verified == 1) <img src="/image/verified.png" style="width:20px;" /> @endif</h3>
+        <hr>
+
+        <p class="alignleft">@if($poin < 100)
+        <img src="/image/star.png" style="width:20px;" />
+
+        @elseif($poin < 200)
+        <img src="/image/star.png" style="width:20px;" /> <img src="/image/star.png" style="width:20px;" />
+
+        @elseif($poin < 500)
+        <img src="/image/star.png" style="width:20px;" /> <img src="/image/star.png" style="width:20px;" /> <img src="/image/star.png" style="width:20px;" />
+
+        @elseif($poin < 3000)
+        <img src="/image/star.png" style="width:20px;" /> <img src="/image/star.png" style="width:20px;" /> <img src="/image/star.png" style="width:20px;" /> <img src="/image/star.png" style="width:20px;" />
+
+        @endif</p>
+        <p class="alignright">{{ $counts }} Mading</p>
+
+
 
       </div>
-      <div class="panel-body">
-        <img src="{{ Storage::url($user->avatar) }}" class="img-responsive">
-      </div>
+      
     </div>
 
 

@@ -20,7 +20,24 @@ Route::get('/search/{slug}', 'BaseController@cari');
 
 
 Route::get('/admincp/', 'AdmincpController@index');
+Route::get('/admincp/mading/list', [
+  'uses' => 'AdmincpController@mading',
+  'as' => 'listmading'
+]);
+Route::get('/admincp/mading/pending',[
+  'uses' => 'AdmincpController@pending',
+  'as'   => 'pendingmading'
+]);
 
+Route::get('/admincp/users',[
+  'uses' => 'AdmincpController@users',
+  'as'   => 'users'
+]);
+
+Route::get('/admincp/users/edit/{id}',[
+  'uses' => 'AdmincpController@uedit',
+  'as'   => 'users'
+]);
 
 Auth::routes();
 

@@ -11,7 +11,7 @@
                     @foreach ($blogs as $blog)
 
                     <a href="/mading/{{ $blog->slug }}"><h3>{{ $blog->title }}</h3></a>
-                    <img src="{{ $blog->image }}" class="img-responsive">
+                    <img src="{{ Storage::url($blog->image) }}" class="img-responsive">
                     {{ $blog->content }}
                     <hr>
                     <p>{{ $blog->sumber_gambar }}</p>
